@@ -1,5 +1,5 @@
 /// DEBUG
-console.log("*** ~/background.js ENTRY");
+//console.log("*** ~/background.js ENTRY");
 
 
 
@@ -9,11 +9,10 @@ let fn_GetDefinition = (a_URL) => {
 	});
 
 	/// DEBUG
-	console.log("*** ~/background.js::fn_GetDefinition -- opening tab: ${a_URL}");
+	//console.log("*** ~/background.js::fn_GetDefinition -- opening tab: ${a_URL}");
 };
 
 let fn_Lookup_ES = (a_TextToTranslate) => {
-	console.log("*** fn_Lookup_ES ENTRY");
 	fn_GetDefinition( `http://dle.rae.es/?w=${a_TextToTranslate}` );
 };
 let fn_Lookup_FR = (a_TextToTranslate) => {
@@ -63,16 +62,16 @@ browser.contextMenus.create({
 /// *** Event Handler
 browser.contextMenus.onClicked.addListener(function(info, tab) {
 	/// DEBUG
-	console.log("*** browser.menus.onClicked.addListener event handler ENTRY");
+	//console.log("*** browser.menus.onClicked.addListener event handler ENTRY");
 
 	/// Figure out what the thing is that we'll be looking up
 	let textToTranslate = info.selectionText;
 
 	/// DEBUG
-	console.log(`*** textToTranslate = ${textToTranslate}`);
+	//console.log(`*** textToTranslate = ${textToTranslate}`);
 
 	if (!textToTranslate) {
-		console.log("*** ~/background.js ERROR -- tried to translate text, but no selected text was found!")
+		console.log("*** Language-Lookup/background.js ERROR -- tried to translate text, but no selected text was found!")
 	}
 
 	

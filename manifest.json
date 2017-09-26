@@ -1,0 +1,24 @@
+{
+
+  "manifest_version": 2,
+  "name": "Language Lookup!",
+	"version": "1.0",
+  "description": "Highlight a word or phrase, right click it, then choose its language to look up its definition in that language!",
+  "homepage_url": "https://github.com/wanderrful",
+	
+	
+
+	"icons": {
+		"48": "icons/icon-48.png"
+	},
+	
+	"background": {
+		"scripts": ["background.js"]
+	},
+
+	"permissions": [
+		"contextMenus",
+		"tabs"
+	]
+
+}

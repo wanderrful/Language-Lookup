@@ -4,9 +4,7 @@
 
 
 let fn_GetDefinition = (a_URL) => {
-	browser.tabs.create({
-		"url":  a_URL
-	});
+	browser.tabs.create({ "url":  a_URL });
 
 	/// DEBUG
 	//console.log("*** ~/background.js::fn_GetDefinition -- opening tab: ${a_URL}");
@@ -52,7 +50,7 @@ browser.contextMenus.create({
 	contexts: ["selection"]
 });
 browser.contextMenus.create({
-	id:	"sxf_swedish",
+	id: "sxf_swedish",
 	title: "Swedish",
 	contexts: ["selection"]
 });
@@ -60,7 +58,7 @@ browser.contextMenus.create({
 
 
 /// *** Event Handler
-browser.contextMenus.onClicked.addListener(function(info, tab) {
+browser.contextMenus.onClicked.addListener( (info, tab) => {
 	/// DEBUG
 	//console.log("*** browser.menus.onClicked.addListener event handler ENTRY");
 

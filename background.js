@@ -25,6 +25,15 @@ let fn_Lookup_PT = (a_TextToTranslate) => {
 let fn_Lookup_SW = (a_TextToTranslate) => {
 	fn_GetDefinition( `http://folkets-lexikon.csc.kth.se/folkets/folkets.en.html#lookup&${a_TextToTranslate}` );
 };
+let fn_Lookup_NO = (a_TextToTranslate) => {
+	fn_GetDefinition( `https://snl.no/.search?query=${a_TextToTranslate}` );
+}
+let fn_Lookup_DE = (a_TextToTranslate) => {
+	fn_GetDefinition( `https://dict.tu-chemnitz.de/dings.cgi?query=${a_TextToTranslate}` );
+}
+let fn_Lookup_JP = (a_TextToTranslate) => {
+	fn_GetDefinition( `https://jisho.org/search/${a_TextToTranslate}` );
+}
 
 
 
@@ -52,6 +61,21 @@ browser.contextMenus.create({
 browser.contextMenus.create({
 	id: "sxf_swedish",
 	title: "Swedish",
+	contexts: ["selection"]
+});
+browser.contextMenus.create({
+	id: "sxf_norwegian",
+	title: "Norwegian",
+	contexts: ["selection"]
+});
+browser.contextMenus.create({
+	id: "sxf_german",
+	title: "German",
+	contexts: ["selection"]
+});
+browser.contextMenus.create({
+	id: "sxf_japanese",
+	title: "Japanese",
 	contexts: ["selection"]
 });
 
@@ -89,6 +113,15 @@ browser.contextMenus.onClicked.addListener( (info, tab) => {
 			break;
 		case "sxf_swedish":
 			fn_Lookup_SW(textToTranslate);
+			break;
+		case "sxf_norwegian":
+			fn_Lookup_NO(textToTranslate);
+			break;
+		case "sxf_german":
+			fn_Lookup_DE(textToTranslate);
+			break;
+		case "sxf_japanese":
+			fn_Lookup_JP(textToTranslate);
 			break;
 	}
 });
